@@ -155,11 +155,11 @@ bool checkpawnmove(int c1,int c2,int c3,int c4)
                 int g;
                 if(c1==6)
                 {
-                    g=2;
+                    g=5;
                 }
                 if(c1==1)
                 {
-                    g=5;
+                    g=2;
                 }
                 if(board[g][c2]!='*')
                 {
@@ -169,14 +169,13 @@ bool checkpawnmove(int c1,int c2,int c3,int c4)
                 {
                     return 0;
                 }
-                if(g==2)
+                if(g==5)
                 {
                     enp[c4][1]=1;
                 }
-                else if(g==5)
+                else if(g==2)
                 {
                     enp[c4][0]=1;
-                    
                 }
                 return 1;
             }
