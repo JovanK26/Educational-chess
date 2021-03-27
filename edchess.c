@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<math.h>
-#include<cs50.h>
+//#include<cs50.h>
 #include <stdlib.h>
 char board[8][8];
 bool enp[8][2];
@@ -107,8 +107,18 @@ bool checkrookmove(int c1,int c2,int c3,int c4)
 bool checkknightmove(int c1,int c2,int c3,int c4)
 {
     if(c1<0 || c1>7 || c2<0 || c2>7 || c3<0 || c3>7 || c4<0 || c4>7)return 0;
-    if(abs(c1-c3)==1 && abs(c2-c4)==2)return 1;
-    if(abs(c1-c3)==2 && abs(c2-c4)==1)return 1;
+    if(abs(c1-c3)==1 && abs(c2-c4)==2)
+    {
+        if(white(c1,c2) && white(c3,c4))return 0;
+        if(black(c1,c2) && black(c3,c4))return 0;
+        return 1;
+    }
+    if(abs(c1-c3)==2 && abs(c2-c4)==1)
+    {
+        if(white(c1,c2) && white(c3,c4))return 0;
+        if(black(c1,c2) && black(c3,c4))return 0;
+        return 1;
+    }
     return 0;
 }
 bool checkqueenmove(int c1,int c2,int c3,int c4)
